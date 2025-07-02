@@ -1,4 +1,6 @@
 <?php
+include_once "../../api/includes/Database.class.php";
+include_once "../control/menuC.php";
 
 session_start();
 if (!isset($_SESSION['usuario_id']) || !isset($_SESSION['csrf_token'])) {
@@ -82,10 +84,10 @@ $logeo_path = "{$project_path}/{$logeo_folder}";
             <div class="stat-box gradient-purple">
                 <div class="stat-info">
                     <h3>Total Clientes</h3>
-                    <div class="stat-number">248</div>
+                    <div class="stat-number"><?php echo $totalActual; ?></div>
                     <div class="stat-trend positive">
                         <i class="fas fa-arrow-up"></i>
-                        <span>12% vs mes anterior</span>
+                        <span><?php echo $porcentajeTexto; ?>% mes anterior</span>
                     </div>
                 </div>
                 <div class="stat-icon">
@@ -96,7 +98,7 @@ $logeo_path = "{$project_path}/{$logeo_folder}";
             <div class="stat-box gradient-blue">
                 <div class="stat-info">
                     <h3>En Revisión</h3>
-                    <div class="stat-number">15</div>
+                    <div class="stat-number"><?php echo $totalRevision; ?></div>
                     <div class="stat-trend">
                         <span>Equipos pendientes</span>
                     </div>
@@ -109,7 +111,7 @@ $logeo_path = "{$project_path}/{$logeo_folder}";
             <div class="stat-box gradient-orange">
                 <div class="stat-info">
                     <h3>En Proceso</h3>
-                    <div class="stat-number">32</div>
+                    <div class="stat-number"><?php echo $totalProceso; ?></div>
                     <div class="stat-trend">
                         <span>En reparación</span>
                     </div>
@@ -122,7 +124,7 @@ $logeo_path = "{$project_path}/{$logeo_folder}";
             <div class="stat-box gradient-green">
                 <div class="stat-info">
                     <h3>Completados</h3>
-                    <div class="stat-number">186</div>
+                    <div class="stat-number"><?php echo $totalCompletados; ?></div>
                     <div class="stat-trend positive">
                         <i class="fas fa-arrow-up"></i>
                         <span>Este mes</span>
